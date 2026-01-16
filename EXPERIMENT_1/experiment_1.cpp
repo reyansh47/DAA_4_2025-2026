@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int operations = 0;
 int depth=0,maxd=0;
 
@@ -28,10 +27,7 @@ void complexRec(int n) {
         small[i] = i * i;
         operations++;
     }
-
-    if (n % 3 == 0) {
-        reverse(small.begin(), small.end());
-    } else {
+    if (n % 3 == 0) { reverse(small.begin(), small.end()); } else {
         reverse(small.begin(), small.end());
     }
 
@@ -45,13 +41,11 @@ void complexRec(int n) {
 int main() {
     int n;
     cin >> n;
-
     complexRec(n);
     cout << operations << endl;
     cout << maxd << endl;
 
-    return 0;
-}
+    return 0;}
 
 
 
@@ -61,4 +55,5 @@ int main() {
 
 //f(n)=n g(n)=n^(log b a) = n^(log 2 3) f(n)<g(n) so case 1 of master theorem applies
 //so t(n)=O(nlog b a)=O(nlog 2 3)
+
 
