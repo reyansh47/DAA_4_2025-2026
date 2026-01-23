@@ -19,7 +19,7 @@ struct Compare{
     }
 };
 
-void generate(Node* root,unordered_map<char,string>& mp){
+void generate(Node* root,string code,unordered_map<char,string>& mp){
     if(!root) return;
 
     if(!root->left && !root->right){
@@ -50,8 +50,10 @@ string decode(Node* root,string bits){
 int main(){
     string s;
     cout<<"Enter string: ";
-    cin>>s;
+    getline(cin,s);
 
+    unordered_map<char,int> freq;
+    for(char c:s) freq[c]++;
 
     priority_queue<Node*,vector<Node*>,Compare> pq;
 
@@ -71,6 +73,8 @@ int main(){
 
     Node* root=pq.top();
 
+    unordered_map<char,string> code;
+    generate(root,"",code);
 
     string encoded="";
     for(char c:s)
